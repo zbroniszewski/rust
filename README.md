@@ -7,3 +7,4 @@ I created this to document and assist my journey learning Rust, from beginner to
 ## Path
 
 - [Getting Started](/01-getting-started)
+- [Hello World](/02-hello-world)
