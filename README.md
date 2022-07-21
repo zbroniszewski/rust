@@ -8,3 +8,4 @@ I created this to document and assist my journey learning Rust, from beginner to
 
 - [Getting Started](/01-getting-started)
 - [Hello World](/02-hello-world)
+- [Cargo](/03-cargo)
