@@ -11,6 +11,7 @@
 - [Running projects with Cargo](#running-projects-with-cargo)
   - [Running from Release](#running-from-release)
 - [Cargo Check](#cargo-check)
+- [Notes](#notes)
 
 ## What is Cargo?
 
@@ -73,3 +74,12 @@ Takes longer to compile, but is compiled with optimizations for runtime
 
 `cargo check` - Checks that your program can compile, without producing an executable.  
 This is useful because it is faster than `cargo build`, and often the choice while coding and iterating in development.
+
+## Notes
+
+Both `cargo build` and `cargo build --release` seem to have an effect on the byte size of the executable when compared to `rustc` (Ref: [02 Hello World](/02-hello-world#notes)):
+- `rustc` - 478168 bytes
+- `cargo build` - 482192 bytes
+- `cargo build --release` 477424 bytes
+
+`cargo build` appears to create a larger executable than `rustc`, while `cargo build --release` appears to create a smaller one.
