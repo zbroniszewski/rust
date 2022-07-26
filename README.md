@@ -10,3 +10,4 @@ I created this to document and assist my journey learning Rust, from beginner to
 - [Hello World](/02-hello-world)
 - [Cargo](/03-cargo)
 - [Guessing Game](/04-guessing-game)
+- [Common Programming Concepts](/05-common-programming-concepts)
