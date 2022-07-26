@@ -6,8 +6,8 @@ I created this to document and assist my journey learning Rust, from beginner to
 
 ## Path
 
-- [Getting Started](/01-getting-started)
-- [Hello World](/02-hello-world)
-- [Cargo](/03-cargo)
-- [Guessing Game](/04-guessing-game)
-- [Common Programming Concepts](/05-common-programming-concepts)
+1. [Getting Started](/01-getting-started)
+2. [Hello World](/02-hello-world)
+3. [Cargo](/03-cargo)
+4. [Guessing Game](/04-guessing-game)
+5. [Common Programming Concepts](/05-common-programming-concepts)
