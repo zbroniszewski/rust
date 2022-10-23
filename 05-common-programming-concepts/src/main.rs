@@ -8,6 +8,8 @@ fn main() {
     numeric_operations_example();
     tuples_example();
     arrays_example();
+    fahrenheit_to_celsius(72);
+    get_nth_fibonacci_num(93);
 }
 
 fn immutable_example() {
@@ -75,4 +77,27 @@ fn arrays_example() {
   let _arr: [u8; 3] = [1, 2, 3];
   // initialize with same values [8, 8, 8]
   let _arr_two = [8; 3];
+}
+
+fn fahrenheit_to_celsius(degrees_fahrenheit: i8) -> f64 {
+  let degrees_celsius = (degrees_fahrenheit as f64 - 32.0) * 5.0 / 9.0;
+  println!("{} °F is {:.2} °C", degrees_fahrenheit, degrees_celsius);
+  degrees_celsius
+}
+
+fn get_nth_fibonacci_num(position: u16) -> u64 {
+  let mut count = 1;
+  let mut current: u64 = 0;
+  let mut next: u64 = 1;
+  
+  while count < position {
+    let _current = next;
+    next = next + current;
+    current = _current;
+    count += 1;
+  }
+
+  println!("{}", current);
+
+  current
 }
