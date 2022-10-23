@@ -11,3 +11,4 @@ I created this to document and assist my journey learning Rust, from beginner to
 3. [Cargo](/03-cargo)
 4. [Guessing Game](/04-guessing-game)
 5. [Common Programming Concepts](/05-common-programming-concepts)
+6. [Ownership](/06-ownership)
