@@ -2,14 +2,22 @@
 
 ## Table of Contents
 
-- [Variables & Mutability](#variables--mutability)
-- [Constants](#constants)
-- [Shadowing](#shadowing)
-- [Data Types](#data-types)
-  - [Scalar](#scalar-data-types)
-    - [Integers](#integers)
-    - [Integer Overflow](#integer-overflow)
-  - [Compound](#compound)
+- [05 Common Programming Concepts](#05-common-programming-concepts)
+  - [Table of Contents](#table-of-contents)
+  - [Variables & Mutability](#variables--mutability)
+  - [Constants](#constants)
+  - [Shadowing](#shadowing)
+  - [Data Types](#data-types)
+    - [Scalar Data Types](#scalar-data-types)
+      - [Integers](#integers)
+      - [Integer Overflow](#integer-overflow)
+      - [Floating-Point Types](#floating-point-types)
+      - [Numeric Operations](#numeric-operations)
+      - [The Boolean Type](#the-boolean-type)
+      - [The Character Type](#the-character-type)
+    - [Compound Types](#compound-types)
+      - [The Tuple Type](#the-tuple-type)
+      - [The Array Type](#the-array-type)
 
 ## Variables & Mutability
 
@@ -126,8 +134,58 @@ Rust has two primitive types for *floating-point* numbers:
 - `f64`
 
 The default is `f64` because on modern CPUs, it is roughly the same speed as `f32`, but can be more precise.  
-Floating-point numbers are represented using the `IEEE-754` standard. `f32` is a single-precision float, and `f64` has double precision.
+Floating-point numbers are represented using the `IEEE-754` standard. `f32` is a single-precision float, and `f64` has double precision.  
+All floating-point types are signed.
 
 #### Numeric Operations
 
-Integer division rounds down to the nearest integer.
+Integer division rounds down to the nearest integer.  
+Supported operations:
+- addition
+- subtraction
+- multiplication
+- division
+- remainder
+
+#### The Boolean Type
+
+The `bool` type has two possible values: `true` or `false` and is one byte in size.
+
+#### The Character Type
+
+Rust's `char` type is the language's most primitive alphabetic type.  
+We use single quotes to specify `char` literals, while string literals use double quotes.  
+The `char` type is four bytes in size and represents a "Unicode Scalar Value," which includes (but not limited to):
+- ASCII
+- Accented letters
+- Chinese
+- Emojis
+- Zero-width space
+
+Unicode Scalar Values range from `U+0000` to `U+D7FF` and `U+E000` to `U+10FFFF` inclusive.
+
+### Compound Types
+
+*Compound Types* can group multiple values into one. Rust has two primitive compound types:
+- Tuples
+- Arrays
+
+#### The Tuple Type
+
+A Tuple is a way of grouping together values with different data types into a single, compound type.  
+Tuples have a fixed length; once declared, they cannot grow or shrink in size.  
+There are two methods for accessing values of a Tuple:
+- Destructuring
+- By index with "dot" operator syntax
+
+A Tuple without any values is called a *unit*: `()`  
+Expressions implicitly return the unit value if they don’t return any other value.
+
+#### The Array Type
+
+An *array* is a collection of multiple values. Unlike Tuples, every element of an array must be of the same type.  
+Arrays in Rust have a fixed length.  
+Arrays are useful when you want your data allocated on the *stack* instead of the *heap*.  
+Elements of an array can be accessed by index using the square-bracket syntax: `var[3]`  
+Accessing invalid indices of an array can result in a *runtime error*. Rust prevents accessing invalid memory and throws these errors.
+
