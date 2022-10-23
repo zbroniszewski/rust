@@ -20,6 +20,7 @@
   - [Parameters](#parameters)
   - [Statements and Expressions](#statements-and-expressions)
   - [Functions with Return Values](#functions-with-return-values)
+- [Comments](#comments)
 
 ## Variables & Mutability
 
@@ -231,3 +232,8 @@ Return types of functions are declared after an arrow: `->`
 The return value of a function is the final expression of the function body. You can also return early from a function using the `return` keyword, but most functions return the last expression implicitly.  
 
 Functions that do not return anything, or end in a statement rather than an expression, return the unit type (an empty tuple).
+
+## Comments
+
+- Single-line comments: `//`
+- Multi-line comments: `/*...*/`
