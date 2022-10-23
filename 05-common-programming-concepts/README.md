@@ -21,6 +21,14 @@
   - [Statements and Expressions](#statements-and-expressions)
   - [Functions with Return Values](#functions-with-return-values)
 - [Comments](#comments)
+- [Control Flow](#control-flow)
+  - [`if` Expressions](#if-expressions)
+  - [Repitition with Loops](#repitition-with-loops)
+    - [Repeating Code with `loop`](#repeating-code-with-loop)
+    - [Returning Code with `loop`](#returning-code-with-loop)
+    - [Loop Labels](#loop-labels)
+    - [Conditional Loops with `while`](#conditional-loops-with-while)
+    - [Looping through a Collection with `for`](#looping-through-a-collection-with-for)
 
 ## Variables & Mutability
 
@@ -237,3 +245,91 @@ Functions that do not return anything, or end in a statement rather than an expr
 
 - Single-line comments: `//`
 - Multi-line comments: `/*...*/`
+
+## Control Flow
+
+The most common constructs that let you control the flow of execution in Rust are `if` expressions and loops.
+
+### `if` Expressions
+
+The `if` condition *must* be a `bool` type, unlike languages such as Ruby or JavaScript which automatically try to convert to a Boolean.
+
+Because `if` is an expression, we can use it on the right side of a `let` statement:
+```rust
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+
+Values that have the potential to be a result from each arm of an `if` expression *must* be of the same type.
+
+### Repitition with Loops
+
+Rust has three kinds of loops:
+- loop
+- while
+- for
+
+#### Repeating Code with `loop`
+
+`loop {}` will execute a block of code forever until it is explicitly told to stop using the `break` keyword. The `continue` keyword can also be used to immediately continue to the next iteration of the loop.
+
+#### Returning Code with `loop`
+
+One of the uses of a `loop` is to retry an operation you know might fail. You might also need to return the result of that operation out of the loop to the rest of your code.  
+To do this, you add the value you want returned following the `break` expression:
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+#### Loop Labels
+
+If you have nested loops, the `break` and `continue` expressions apply to the innermost loop where they are used.  
+You can optionally specify a *loop label* to apply these expressions to higher loops:
+```rust
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+```
+
+#### Conditional Loops with `while`
+
+A `while` loop will iterate while a condition is true. When the condition is no longer true, the program calls `break`, stopping the loop. This behavior is possible using a combination of `loop`, `if`, `else` and `break` but is much more clear and concise with a `while` loop.
+
+#### Looping through a Collection with `for`
+
+While you can loop through elements of a collection using a `while` loop or a `loop`, this usually involves access elements of the collection by their indices, which adds more expensive runtime checks to ensure that index is not out-of-bounds.  
+A `for` loop optimizes on these runtime checks, making it the best choice for looping through collections in most cases. 
