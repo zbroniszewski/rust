@@ -118,3 +118,16 @@ for primitive numeric types:
 - Return the `None` value if there is overflow with the `checked_*` methods
 - Return the value and a boolean indicating whether there was overflow with the `overflowing_*` methods
 - Saturate at the value’s minimum or maximum values with `saturating_*` methods
+
+#### Floating-Point Types
+
+Rust has two primitive types for *floating-point* numbers:
+- `f32`
+- `f64`
+
+The default is `f64` because on modern CPUs, it is roughly the same speed as `f32`, but can be more precise.  
+Floating-point numbers are represented using the `IEEE-754` standard. `f32` is a single-precision float, and `f64` has double precision.
+
+#### Numeric Operations
+
+Integer division rounds down to the nearest integer.
