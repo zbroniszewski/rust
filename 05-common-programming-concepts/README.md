@@ -1,23 +1,25 @@
-# 05 Common Programming Concepts
+# 05 Common Programming Concepts <!-- omit in toc -->
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
-- [05 Common Programming Concepts](#05-common-programming-concepts)
-  - [Table of Contents](#table-of-contents)
-  - [Variables & Mutability](#variables--mutability)
-  - [Constants](#constants)
-  - [Shadowing](#shadowing)
-  - [Data Types](#data-types)
-    - [Scalar Data Types](#scalar-data-types)
-      - [Integers](#integers)
-      - [Integer Overflow](#integer-overflow)
-      - [Floating-Point Types](#floating-point-types)
-      - [Numeric Operations](#numeric-operations)
-      - [The Boolean Type](#the-boolean-type)
-      - [The Character Type](#the-character-type)
-    - [Compound Types](#compound-types)
-      - [The Tuple Type](#the-tuple-type)
-      - [The Array Type](#the-array-type)
+- [Variables & Mutability](#variables--mutability)
+- [Constants](#constants)
+- [Shadowing](#shadowing)
+- [Data Types](#data-types)
+  - [Scalar Data Types](#scalar-data-types)
+    - [Integers](#integers)
+    - [Integer Overflow](#integer-overflow)
+    - [Floating-Point Types](#floating-point-types)
+    - [Numeric Operations](#numeric-operations)
+    - [The Boolean Type](#the-boolean-type)
+    - [The Character Type](#the-character-type)
+  - [Compound Types](#compound-types)
+    - [The Tuple Type](#the-tuple-type)
+    - [The Array Type](#the-array-type)
+- [Functions](#functions)
+  - [Parameters](#parameters)
+  - [Statements and Expressions](#statements-and-expressions)
+  - [Functions with Return Values](#functions-with-return-values)
 
 ## Variables & Mutability
 
@@ -189,3 +191,43 @@ Arrays are useful when you want your data allocated on the *stack* instead of th
 Elements of an array can be accessed by index using the square-bracket syntax: `var[3]`  
 Accessing invalid indices of an array can result in a *runtime error*. Rust prevents accessing invalid memory and throws these errors.
 
+## Functions
+
+A function in Rust is defined with the `fn` keyword.  
+Functions use *snake case* as the conventional style for function and variable names.  
+Rust doesn't care where you define your functions, only that they are in a scope that can be seen by the caller.
+
+### Parameters
+
+In function signatures, you *must* declare the type of each parameter.
+
+### Statements and Expressions
+
+Functions are made up of a series of statements, optionally ending in an expression.  
+
+*Statements* are instructions that perform some action, but do not return any value.  
+*Expressions* make an evaluation and return a resulting value.  
+
+In some languages such as C and Ruby, you can write `x = y = 6` in which case both `x` and `y` would be set to the value `6`. This is not possible in Rust due to the distinction between statements and expressions. In the case of Rust, you would be attempting to set `x` to the return value of the statement `y = 6`, but statements do not return values.  
+
+Expressions do not include ending semicolons, i.e.:
+```rust
+let y = {
+    let x = 3;
+    x + 1
+};
+```
+
+Examples of expressions include:
+- Numerical operations `5 + 6`
+- Literals `6`
+- Calling a function
+- Calling a macro
+- A new scope block with curly braces
+
+### Functions with Return Values
+
+Return types of functions are declared after an arrow: `->`  
+The return value of a function is the final expression of the function body. You can also return early from a function using the `return` keyword, but most functions return the last expression implicitly.  
+
+Functions that do not return anything, or end in a statement rather than an expression, return the unit type (an empty tuple).
